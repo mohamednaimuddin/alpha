@@ -6,10 +6,23 @@
   const navigation = document.getElementById('main-nav');
   const cursor = document.querySelector('.cursor-light');
   const visual = document.querySelector('[data-parallax]');
+  const themeToggle = document.querySelector('.theme-toggle');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const applyTheme = (theme) => {
+    document.documentElement.dataset.theme = theme;
+    const isLight = theme === 'light';
+    themeToggle.setAttribute('aria-pressed', String(isLight));
+    themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', isLight ? '#eee8df' : '#0b0a09');
+    try { localStorage.setItem('alpha-theme', theme); } catch (error) { /* Preference storage is optional. */ }
+  };
+
+  applyTheme(document.documentElement.dataset.theme || 'dark');
+  themeToggle.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'));
 
   const closeMenu = () => {
     navigation.classList.remove('open');
