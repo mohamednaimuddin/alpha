@@ -68,7 +68,7 @@
           <div><strong>01</strong><span>UAE-based<br>manufacturing</span></div>
           <div><strong>02</strong><span>Made-to-order<br>solutions</span></div>
           <div><strong>03</strong><span>Product-to-project<br>support</span></div>
-          <p>Surfaces made to perform.</p>
+          <div class="hero-metric-final"><strong>04</strong><span>Surfaces made to<br>perform</span></div>
         </div>
       </div>
     </section>
@@ -173,13 +173,64 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="contact section-space" id="contact">
       <div class="container-xxl">
         <div class="contact-panel reveal">
-          <p class="eyebrow"><span></span> Start a conversation</p>
-          <h2>Let’s shape a reliable<br>solution together.</h2>
-          <p>Tell us the application, area, preferred format, and performance priorities. We’ll help define the next step.</p>
-          <a class="contact-email" href="mailto:info@alpharubberuae.com">info@alpharubberuae.com <span aria-hidden="true">↗</span></a>
+          <p class="eyebrow">
+            <span></span> Start a conversation
+          </p>
+
+          <h2>
+            Let’s shape a reliable<br>
+            solution together.
+          </h2>
+
+          <p>
+            Tell us the application, area, preferred format, and performance priorities.
+            We’ll help define the next step.
+          </p>
+
+          <!-- Contact Form -->
+          <form id="contactForm" class="contact-form">
+            <div class="contact-input-row">
+              <input
+                type="text"
+                id="contactName"
+                placeholder="Enter your name"
+                required
+              >
+
+              <input
+                type="email"
+                id="contactEmail"
+                placeholder="Enter your email"
+                required
+              >
+            </div>
+
+            <select id="enquiryType" class="contact-select" required>
+              <option value="" selected disabled>What are you enquiring about?</option>
+              <option value="gym-flooring">Gym flooring</option>
+              <option value="industrial-mats">Industrial mats</option>
+              <option value="entrance-mats">Entrance mats</option>
+              <option value="floor-tiles">Rubber floor tiles</option>
+              <option value="custom-order">Custom order</option>
+              <option value="other">Other</option>
+            </select>
+
+            <textarea
+              id="contactMessage"
+              placeholder="Enter your message"
+              required
+            ></textarea>
+
+            <button type="submit" class="contact-submit">
+              <span>➤</span>
+              Send message
+            </button>
+          </form>
+
         </div>
       </div>
     </section>

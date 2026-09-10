@@ -79,4 +79,21 @@
       });
     }, { passive: true });
   }
+
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('contactName').value;
+        const email = document.getElementById('contactEmail').value;
+        const message = document.getElementById('contactMessage').value;
+
+        if (name && email && message) {
+          alert('Thank you! Your message has been received.');
+          contactForm.reset();
+        }
+      });
+    }
 })();
