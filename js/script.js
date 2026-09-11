@@ -43,10 +43,30 @@
 
   navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   window.addEventListener('resize', () => { if (window.innerWidth > 991) closeMenu(); }, { passive: true });
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+  document.addEventListener('click', (event) => {
+    if (navigation.classList.contains('open') && !navigation.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+  });
 
   const setHeader = () => header.classList.toggle('scrolled', window.scrollY > 24);
   setHeader();
   window.addEventListener('scroll', setHeader, { passive: true });
+
+  const sectionLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+  const sections = sectionLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  if (sections.length) {
+    const setActiveLink = () => {
+      const current = [...sections].reverse().find((section) => section.getBoundingClientRect().top <= 150) || sections[0];
+      sectionLinks.forEach((link) => {
+        const active = link.getAttribute('href') === `#${current.id}`;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    setActiveLink();
+    window.addEventListener('scroll', setActiveLink, { passive: true });
+  }
 
   const reveals = document.querySelectorAll('.reveal');
   if (reducedMotion) {
@@ -91,8 +111,18 @@
         const message = document.getElementById('contactMessage').value;
 
         if (name && email && message) {
-          alert('Thank you! Your message has been received.');
+          const button = contactForm.querySelector('.contact-submit');
+          const status = contactForm.querySelector('.form-status');
+          button.disabled = true;
+          button.setAttribute('aria-busy', 'true');
+          button.innerHTML = '<span aria-hidden="true">✓</span> Message received';
+          if (status) status.textContent = 'Thanks — we’ll be in touch shortly.';
           contactForm.reset();
+          window.setTimeout(() => {
+            button.disabled = false;
+            button.removeAttribute('aria-busy');
+            button.innerHTML = '<span aria-hidden="true">➤</span> Send message';
+          }, 2600);
         }
       });
     }
