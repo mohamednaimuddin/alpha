@@ -3,7 +3,7 @@
 
   const collections = {
     industrial: {
-      number: '02', title: 'Industrial Mats', accent: 'Mats', image: 'images/Industrial%20Mats.png',
+      number: '02', title: 'Industrial Mats', accent: 'Mats', image: 'assets/products/Industrial%20Mats/images/Industrial%20Mats.png',
       intro: 'Dependable matting and roll surfaces developed for workshops, production areas, service zones, and demanding workplaces.',
       benefit: 'Engineered for traction, comfort and daily industrial use',
       products: [
@@ -19,7 +19,7 @@
       ]
     },
     entrance: {
-      number: '03', title: 'Entrance & Door Mats', accent: 'Mats', image: 'images/Entrance%20%26%20Door%20Mats.png',
+      number: '03', title: 'Entrance & Door Mats', accent: 'Mats', image: 'assets/products/EntranceandDoorMats/images/Entrance%20%26%20Door%20Mats.png',
       intro: 'First-line floor protection for commercial entrances, reception areas, doorways, and high-traffic circulation spaces.',
       benefit: 'Designed to capture dirt, manage moisture and elevate entrances',
       products: [
@@ -30,7 +30,7 @@
       ]
     },
     kitchen: {
-      number: '04', title: 'Anti-Fatigue & Kitchen', accent: 'Kitchen', image: 'images/Anti-Fatigue%20%26%20Kitchen.png',
+      number: '04', title: 'Anti-Fatigue & Kitchen', accent: 'Kitchen', image: 'assets/products/Anti-FatigueandKitchen/images/Anti-Fatigue%20%26%20Kitchen.png',
       intro: 'Supportive rubber matting for kitchens, counters, production lines, and workstations where comfort and grip matter.',
       benefit: 'Made for comfort, grip and demanding working environments',
       products: [
@@ -39,7 +39,7 @@
       ]
     },
     tiles: {
-      number: '05', title: 'Rubber Floor Tiles', accent: 'Floor Tiles', image: 'images/Rubber%20Floor%20Tiles.png',
+      number: '05', title: 'Rubber Floor Tiles', accent: 'Floor Tiles', image: 'assets/products/RubberFloorTiles/images/Rubber%20Floor%20Tiles.png',
       intro: 'Modular rubber flooring for commercial, garage, wet-area, fitness, and multi-purpose interior applications.',
       benefit: 'Flexible modular flooring for projects of every scale',
       products: [
@@ -51,7 +51,7 @@
       ]
     },
     stable: {
-      number: '06', title: 'Stable & Animal Mats', accent: 'Mats', image: 'images/Stable%20%26%20Animal%20Mats.png',
+      number: '06', title: 'Stable & Animal Mats', accent: 'Mats', image: 'assets/products/StableAnimal%20Mats/images/Stable%20%26%20Animal%20Mats.png',
       intro: 'Resilient rubber surfaces for stables, livestock areas, walkways, wash zones, and working agricultural facilities.',
       benefit: 'Supportive, practical surfaces made for animal environments',
       products: [
@@ -60,7 +60,7 @@
       ]
     },
     specialty: {
-      number: '07', title: 'Specialty Products', accent: 'Products', image: 'images/Specialty%20Products.png',
+      number: '07', title: 'Specialty Products', accent: 'Products', image: 'assets/products/Specialty%20Products/images/Specialty%20Products.png',
       intro: 'Focused surface solutions for stairs, sound control, entrances, children’s areas, and specialist project requirements.',
       benefit: 'Purpose-led materials for specialist spaces and applications',
       products: [
@@ -76,19 +76,33 @@
   const main = document.getElementById('main');
   const data = collections[main.dataset.collection];
   if (!data) return;
+  const imageFolders = {
+    industrial: 'Industrial Mats', entrance: 'EntranceandDoorMats', kitchen: 'Anti-FatigueandKitchen',
+    tiles: 'RubberFloorTiles', stable: 'StableAnimal Mats', specialty: 'Specialty Products'
+  };
+  const imageBase = `assets/products/${encodeURIComponent(imageFolders[main.dataset.collection])}/images`;
+  const collectionLinks = [
+    ['Gym & Fitness', 'gymandfitness.html', 'gym'], ['Industrial', 'industrailmats.html', 'industrial'],
+    ['Entrance', 'Entranceanddoormats.html', 'entrance'], ['Kitchen', 'Anti-fatigueandkitchen.html', 'kitchen'],
+    ['Floor Tiles', 'rubberfloortiles.html', 'tiles'], ['Animal Care', 'stableanimalmats.html', 'stable'],
+    ['Specialty', 'specialtyproduct.html', 'specialty']
+  ];
+  const collectionNav = collectionLinks.map(([label, href, key]) =>
+    `<a href="${href}"${key === main.dataset.collection ? ' aria-current="page"' : ''}>${label}</a>`
+  ).join('');
   const subject = encodeURIComponent(`${data.title} Project`);
   document.title = `${data.title} | Alpha Rubber Manufacturing`;
   document.querySelector('meta[name="description"]').content = `Explore ${data.title.toLowerCase()} from Alpha Rubber Manufacturing UAE.`;
 
   const cards = data.products.map((product, index) => `
     <article class="type-card reveal${index % 3 ? ` delay-${index % 3}` : ''}">
-      <div class="type-image product-photo"><img src="images/${encodeURIComponent(product[3] || `${product[0]}.png`)}" alt="${product[0]}" loading="lazy" decoding="async"></div>
+      <div class="type-image product-photo"><img src="${imageBase}/${encodeURIComponent(product[3] || `${product[0]}.png`)}" alt="${product[0]}" loading="lazy" decoding="async"></div>
       <div class="type-copy"><span>${String(index + 1).padStart(2,'0')} / ${product[2]}</span><h3>${product[0]}</h3><p>${product[1]}</p><a href="mailto:info@alpharubberuae.com?subject=${encodeURIComponent(`Enquiry - ${product[0]}`)}">Enquire <i aria-hidden="true">↗</i></a></div>
     </article>`).join('');
 
   main.innerHTML = `
     <section class="category-hero"><div class="category-lines" aria-hidden="true"></div><div class="container-xxl">
-      <a class="category-back reveal" href="../../../index.html#capabilities"><span aria-hidden="true">←</span> All collections</a>
+      <div class="category-tools reveal"><a class="category-back" href="index.html#capabilities"><span aria-hidden="true">←</span> All collections</a><nav class="collection-switcher" aria-label="Product collections">${collectionNav}</nav></div>
       <div class="category-heading"><div class="reveal"><p class="eyebrow"><span></span> Performance surfaces / Collection ${data.number}</p><h1>${data.title.slice(0, -(data.accent.length)).trim()}<br><em>${data.accent}</em></h1></div><p class="category-intro reveal delay-1">${data.intro}</p></div>
       <figure class="category-hero-media reveal delay-2"><img src="${data.image}" alt="Alpha ${data.title} collection" width="1536" height="1024"><figcaption><span>${data.benefit}</span><b>UAE manufacturing</b></figcaption></figure>
     </div></section>
