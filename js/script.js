@@ -103,26 +103,50 @@
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
-      contactForm.addEventListener('submit', (event) => {
+      const requestedProduct = new URLSearchParams(window.location.search).get('product');
+      if (requestedProduct) {
+        const productSelect = contactForm.querySelector('[name="productCategory"]');
+        const message = contactForm.querySelector('[name="message"]');
+        const match = [...productSelect.options].find((option) => option.textContent.toLowerCase().includes(requestedProduct.toLowerCase()));
+        if (match) productSelect.value = match.value;
+        if (message && !message.value) message.value = `I would like information about ${requestedProduct}.`;
+      }
+      contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+        if (!contactForm.reportValidity()) return;
 
-        const name = document.getElementById('contactName').value;
-        const email = document.getElementById('contactEmail').value;
-        const message = document.getElementById('contactMessage').value;
+        const button = contactForm.querySelector('.contact-submit');
+        const status = contactForm.querySelector('.form-status');
+        const originalButton = button.innerHTML;
+        button.disabled = true;
+        button.setAttribute('aria-busy', 'true');
+        button.innerHTML = '<span aria-hidden="true">↻</span> Sending enquiry';
+        if (status) {
+          status.classList.remove('is-error');
+          status.textContent = '';
+        }
 
-        if (name && email && message) {
-          const button = contactForm.querySelector('.contact-submit');
-          const status = contactForm.querySelector('.form-status');
-          button.disabled = true;
-          button.setAttribute('aria-busy', 'true');
-          button.innerHTML = '<span aria-hidden="true">✓</span> Message received';
-          if (status) status.textContent = 'Thanks — we’ll be in touch shortly.';
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { Accept: 'application/json' }
+          });
+          const result = await response.json();
+          if (!response.ok || !result.success) throw new Error(result.message || 'Unable to send enquiry');
+
+          button.innerHTML = '<span aria-hidden="true">✓</span> Enquiry sent';
+          if (status) status.textContent = 'Thank you — your enquiry has been sent to our team.';
           contactForm.reset();
-          window.setTimeout(() => {
-            button.disabled = false;
-            button.removeAttribute('aria-busy');
-            button.innerHTML = '<span aria-hidden="true">➤</span> Send message';
-          }, 2600);
+        } catch (error) {
+          button.innerHTML = originalButton;
+          if (status) {
+            status.classList.add('is-error');
+            status.textContent = 'We could not send your enquiry. Please email info@alpharubberuae.com directly.';
+          }
+        } finally {
+          button.disabled = false;
+          button.removeAttribute('aria-busy');
         }
       });
     }

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /vendor/
+Disallow: /send-enquiry.php
+
+Sitemap: https://alpharubberuae.com/sitemap.xml
