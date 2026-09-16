@@ -1,11 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://alpharubberuae.com/</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://alpharubberuae.com/gymandfitness.html</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://alpharubberuae.com/industrailmats.html</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://alpharubberuae.com/Entranceanddoormats.html</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alpharubberuae.com/Anti-fatigueandkitchen.html</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alpharubberuae.com/rubberfloortiles.html</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://alpharubberuae.com/stableanimalmats.html</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alpharubberuae.com/specialtyproduct.html</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://alpharubberuae.com/</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
+  <!-- Gym & Fitness -->
+  <url>
+    <loc>https://alpharubberuae.com/gymandfitness.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
+  <!-- Industrial Mats -->
+  <url>
+    <loc>https://alpharubberuae.com/industrailmats.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
+  <!-- Entrance & Door Mats -->
+  <url>
+    <loc>https://alpharubberuae.com/Entranceanddoormats.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
+  <!-- Anti-Fatigue & Kitchen -->
+  <url>
+    <loc>https://alpharubberuae.com/Anti-fatigueandkitchen.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
+  <!-- Rubber Floor Tiles -->
+  <url>
+    <loc>https://alpharubberuae.com/rubberfloortiles.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
+  <!-- Stable & Animal Mats -->
+  <url>
+    <loc>https://alpharubberuae.com/stableanimalmats.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
+  <!-- Specialty Products -->
+  <url>
+    <loc>https://alpharubberuae.com/specialtyproduct.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+
 </urlset>

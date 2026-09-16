@@ -1,6 +1,23 @@
 User-agent: *
 Allow: /
+
+# Block dependency/backend directories
 Disallow: /vendor/
+Disallow: /.codex/
+
+# Block server-side processing files
 Disallow: /send-enquiry.php
 
+# Block environment/config files as an extra crawler safeguard
+Disallow: /.env
+Disallow: /.env.example
+Disallow: /composer.json
+Disallow: /composer.lock
+
+# Allow public assets required for rendering
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+
+# Sitemap
 Sitemap: https://alpharubberuae.com/sitemap.xml
