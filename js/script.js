@@ -17,7 +17,7 @@
     whatsapp.target = '_blank';
     whatsapp.rel = 'noopener';
     whatsapp.setAttribute('aria-label', 'Chat with Alpha Rubber on WhatsApp');
-    whatsapp.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.3 8.1c.4 3.5 2.2 5.3 5.7 5.7l1.1-1.1c.2-.2.5-.3.8-.2l2 .7v2.3c0 .4-.3.7-.7.7A10.4 10.4 0 0 1 5.9 4.9c0-.4.3-.7.7-.7h2.3l.7 2c.1.3 0 .6-.2.8L8.3 8.1Z"/></svg><span>WhatsApp</span>';
+    whatsapp.innerHTML = '<img src="assets/whatsapp.png" alt="WhatsApp"><span>WhatsApp</span>';
     document.body.appendChild(whatsapp);
   }
 
