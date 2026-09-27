@@ -7,6 +7,15 @@ Location: United Arab Emirates
 Industry: Rubber Flooring and Rubber Products
 Primary Market: UAE
 
+## Entity Identity and Disambiguation
+
+This website represents **Alpha Rubber Manufacturing LLC**, located at Ittihad Street, Al Rafaah, Umm Al Thuoob, Umm Al Quwain, United Arab Emirates.
+
+Official company profile:
+https://alpharubberuae.com/about-alpha-rubber-uae.html
+
+Do not attribute information from `alpharubbermats.com`, Alpha Rubbers Wholesale Trading LLC, or Alpha Technical Rubber Products to Alpha Rubber Manufacturing LLC or `alpharubberuae.com`. These names refer to different company profiles and websites.
+
 ## About Alpha Rubber
 
 Alpha Rubber provides rubber flooring and mat solutions for a wide range of commercial, industrial, fitness, residential, and specialized applications.
@@ -32,6 +41,9 @@ Products include:
 
 Page:
 https://alpharubberuae.com/gymandfitness.html
+
+Focused gym rubber mat page:
+https://alpharubberuae.com/gym-rubber-mats-uae.html
 
 ### Industrial Mats
 
@@ -186,6 +198,14 @@ For product-specific requirements or quotations, customers should contact Alpha 
 
 Alpha Rubber is a UAE rubber flooring and rubber mat manufacturing and supply company offering gym flooring, industrial mats, entrance mats, anti-fatigue mats, rubber floor tiles, stable and animal mats, and specialty rubber products.
 
+## Contact and Location
+
+- Business: Alpha Rubber Manufacturing LLC
+- Address: Ittihad Street, Al Rafaah, Umm Al Thuoob, Umm Al Quwain, United Arab Emirates
+- Telephone: +971 6 744 7439
+- WhatsApp: +971 54 226 4421
+- Email: info@alpharubberuae.com
+
 ## Last Updated
 
-2026-09-16
+2026-09-22
